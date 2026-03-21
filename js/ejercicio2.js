@@ -9,29 +9,66 @@ Sustituye el elemento que ocupa la segunda posición por la ciudad de 'Barcelona
 const ciudades = [];
 let continuar;
 
-let pantalla = document.getElementById('pantalla');
+let pantalla = document.getElementById("pantalla");
+let pantalla2 = document.getElementById("pantalla2");
+let pantalla3 = document.getElementById("pantalla3");
 
 do {
-  let ciudad = prompt('Ingrese la ciudad');
+  let ciudad = prompt("Ingrese la ciudad");
 
   if (ciudad !== null) {
     ciudades.push(ciudad);
-    continuar = confirm('¿Desea seguir agregando ciudades?');
+    continuar = confirm("¿Desea seguir agregando ciudades?");
   } else {
     continuar = false;
   }
-
 } while (continuar);
 
-// 👉 recién acá trabajás con el array
 
-let lista = '<h2>Listado de Ciudades</h2><ul>';
+document.writeln(`La longitud del arreglo es ${ciudades.length}<br>`);
+
+
+document.writeln(
+  `Primer elemento ${ciudades[0]} el tercer elemento es ${ciudades[2]} y el ultimo ${ciudades[ciudades.length - 1]}<br>`
+);
+
+
+document.writeln(
+  `El elemento de la segunda posicion es ${ciudades[1]}<br>`
+);
+
+
+let lista = "<h2>Listado de Ciudades</h2><ul>";
 
 for (let i = 0; i < ciudades.length; i++) {
   lista += `<li>${ciudades[i]}</li>`;
 }
 
-lista += '</ul>';
-
+lista += "</ul>";
 pantalla.innerHTML = lista;
-document.writeln(`Primer elemento ${ciudades[0]} el tercer elemento es ${ciudades[2]} y el ultimo ${ciudades[ciudades.length-1]}`)
+
+
+ciudades.push("París");
+
+
+let lista2 = "<h2>Listado Nuevo de Ciudades</h2><ul>";
+
+for (let i = 0; i < ciudades.length; i++) {
+  lista2 += `<li>${ciudades[i]}</li>`;
+}
+
+lista2 += "</ul>";
+pantalla2.innerHTML = lista2;
+
+
+ciudades.splice(1, 1, "Barcelona");
+
+
+let lista3 = "<h2>Ultimo listado de Ciudades</h2><ul>";
+
+for (let i = 0; i < ciudades.length; i++) {
+  lista3 += `<li>${ciudades[i]}</li>`;
+}
+
+lista3 += "</ul>";
+pantalla3.innerHTML = lista3;
